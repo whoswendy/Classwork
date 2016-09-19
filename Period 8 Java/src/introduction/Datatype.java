@@ -1,9 +1,8 @@
 package introduction;
 
-public class DataTypes {
+public class Datatype {
 
 	public static void main(String[] args) {
-
 		System.out.println(5.0/2);//Exercise 1
 		System.out.println((double)5.0/2);//Exercise 2
 		System.out.println(5/2);//Exercise 3
@@ -35,3 +34,4 @@ public class DataTypes {
 	}
 
 }
+
