@@ -15,7 +15,14 @@ public class Sophomore extends Student {
 		System.out.println("My name is " + getName() + " and I am a sophomore!");
 		System.out.println("My score is " + examScore);
 		
-		
+		if (examScore > 90)
+		{
+			System.out.println("I have the highest exam score!");
+		}
+		else
+		{
+			System.out.println("I failed my exam");
+		}
 	}
 
 }
