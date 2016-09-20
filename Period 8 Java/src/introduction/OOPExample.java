@@ -6,7 +6,8 @@ public class OOPExample {
 		Student joseph = new Junior("Joseph","Media Major");
 		Student jordan = new Sophomore("Jordan", 60);
 
-		jillian.talk();
+		((Student)jillian).talk();
+		
 		//jillian.name = "BaloneyPants"; when name (variable) becomes public = changeable
 		//jillian.talk();
 		joseph.talk();
