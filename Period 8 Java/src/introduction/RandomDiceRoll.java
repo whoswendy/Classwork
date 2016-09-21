@@ -7,21 +7,24 @@ public class RandomDiceRoll {
 		int[] results = new int[6];
 		int[] unfairResults = new int[6];
 
-		for(int index = 0; index < 10; index ++)
+		int totalRolls = 10000;
+		for(int index = 0; index < totalRolls; index ++)
 		{
 			int result = rollFairDie();
 			System.out.println("Roll #" + (index+1) + ":" + result);
 			results[result-1] ++;
 			
-			int unfairResult = rollUnfairDie();
-			System.out.println("Roll #" + (index+1) + ":" + unfairResult);
-			unfairResults[unfairResult-1] ++;;
+			//int unfairResult = rollUnfairDie();
+			//System.out.println("Roll #" + (index+1) + ":" + unfairResult);
+			//unfairResults[unfairResult-1] ++;;
 		}
 		
+		//prints result
 		for(int i = 0; i < 6; i++)
 		{
-			System.out.println(i+1 + " appeared " + results[i] + " times.");
-			System.out.println(i+1 + " appeared " + unfairResults[i] + " times.");
+			double percentage = ((int) (1000*(double)results[i]/totalRolls))/10.0;
+			System.out.println(i+1 + " appeared " + percentage + "%.");
+			//System.out.println(i+1 + " appeared " + unfairResults[i] + " times.");
 		}
 	
 
@@ -29,7 +32,7 @@ public class RandomDiceRoll {
 	
 	//returns 1,2,3,4,5,6 with equal probability
 	public static int rollFairDie(){
-		double rand = Math.random();//returns a double (0,1)
+		double rand = Math.random();//returns a double [0,1)
 		int roll = (int) (6*rand);//[0,5]
 		roll ++;
 		return roll;

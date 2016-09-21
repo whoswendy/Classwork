@@ -1,15 +1,22 @@
 package introduction;
 
-public class RandomDeck {
-	public static void main(String[]args) {
+public class CardDraw {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
 		String[] cardDeck = {"Ace","2","3","4","5","6","7","8","9","10","Jack","Queen","King"};
 		String[] cardSymbols = {" of Diamond"," of Clover"," of Heart"," of Spade"};
 		
-		for (int i = 0; i<10; i++)
-		{
-			String card = cardDeck[pickCard()] + cardSymbols[pickSymbol()];
-		}
+		System.out.println(cardDeck[pickCard()] + cardSymbols[pickSymbol()]);
 
+	}
+	
+	public static void dealDeck()
+	{
+		//for (int i = 0; i<10; i++)
+		//{
+		//	String card = cardDeck[pickCard()] + cardSymbols[pickSymbol()];
+		//}
 	}
 	
 	public static int pickSymbol()
