@@ -7,17 +7,16 @@ public class CardDraw {
 		String[] cardDeck = {"Ace","2","3","4","5","6","7","8","9","10","Jack","Queen","King"};
 		String[] cardSymbols = {" of Diamond"," of Clover"," of Heart"," of Spade"};
 		
-		System.out.println(cardDeck[pickCard()] + cardSymbols[pickSymbol()]);
-
+		//System.out.println(cardDeck[pickCard()] + cardSymbols[pickSymbol()]);
+		
+		for(int i=0; i<10; i++)
+		{
+			String card = cardDeck[pickCard()] + cardSymbols[pickSymbol()];
+			System.out.println(card);
+		}
 	}
 	
-	public static void dealDeck()
-	{
-		//for (int i = 0; i<10; i++)
-		//{
-		//	String card = cardDeck[pickCard()] + cardSymbols[pickSymbol()];
-		//}
-	}
+
 	
 	public static int pickSymbol()
 	{
@@ -29,9 +28,8 @@ public class CardDraw {
 	
 	public static int pickCard()
 	{
-		double pick = Math.random();
-		int pickNumber = (int) (12*pick);//[0,12]
-		pickNumber ++;
+		double pick = Math.random();//[0,1)
+		int pickNumber = (int) (12*pick);//[0,12)
 		return pickNumber;
 	}
 
