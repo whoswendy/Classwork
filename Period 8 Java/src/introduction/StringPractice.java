@@ -77,20 +77,41 @@ public class StringPractice {
 	public static void print(String s)
 	{
 		String printString = s;
-		int cutOff = 45;
+		int cutOff = 10;
 		if (printString.length() > cutOff)
 		{
-			int cut = 1;
-			int cutIndex = cut * cutOff;
-			String currentCut = s.substring(0,cutIndex);
-			for (int i = currentCut.length()-1; i >= 0 ; i--)
-			{
-				
+			for(int i = 0; i*cutOff<s.length(); i++)
+			{	
+				printString += getCut(s, cutOff, i+1) + "\n";
 			}
-			
-			printString = currentCut;
-		} 
+		 
+		}
 		System.out.println(printString);//out and string("Hello World") are objects	
+	}
+	
+	private static String getCut(String s, int cutOff, int cut)
+	{
+		int cutIndex = cut * cutOff;
+		if (cutIndex > s.length())
+		{
+			cutIndex = s.length();
+		}
+		String currentCut = s.substring(0,cutIndex);
+		
+		int indexOfLastSpace = currentCut.length()-1;
+		//start at last index, go backward
+		for (int i = currentCut.length()-1; i >= 0 ; i--)
+		{
+			String letter = currentCut.substring(i, i+1);
+			if (letter.equals(" "))
+			{
+				indexOfLastSpace = i;
+				break;
+			}
+		}
+		//shorten the cut to end on a space
+		currentCut = currentCut.substring(0,indexOfLastSpace);
+		return currentCut;
 	}
 
 }
