@@ -1,11 +1,12 @@
 package introduction;
 
 public class CardDraw {
+	
+	static String[] cardDeck = {"Ace","2","3","4","5","6","7","8","9","10","Jack","Queen","King"};
+	static String[] cardSymbols = {" of Diamond"," of Clover"," of Heart"," of Spade"};
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		String[] cardDeck = {"Ace","2","3","4","5","6","7","8","9","10","Jack","Queen","King"};
-		String[] cardSymbols = {" of Diamond"," of Clover"," of Heart"," of Spade"};
 		
 		//System.out.println(cardDeck[pickCard()] + cardSymbols[pickSymbol()]);
 		
@@ -16,31 +17,10 @@ public class CardDraw {
 		}
 	}
 	
-	public static void dealCards()
-	{
-		String[] cardDeck = {"Ace","2","3","4","5","6","7","8","9","10","Jack","Queen","King"};
-		String[] cardSymbols = {" of Diamond"," of Clover"," of Heart"," of Spade"};
-		
-		String card1 = cardDeck[pickCard()] + cardSymbols[pickSymbol()];
-		String card2 = cardDeck[pickCard()] + cardSymbols[pickSymbol()];
-		
-		card(card1,card2);
-	}
-	
-	public static void card(String card1, String card2)
-	{
-		if (card1.equals(card2))
-		{
-			dealCards();
-		}
-		else
-		System.out.println(card1);
-	}
 	public static int pickSymbol()
 	{
 		double pick = Math.random();
 		int pickAgain = (int) (4*pick);//[0,3]
-		pickAgain ++;
 		return pickAgain;
 	}
 	
