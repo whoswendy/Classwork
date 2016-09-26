@@ -79,7 +79,16 @@ public class WendyMain {
 					{
 						after = searchString.substring(pos + keyWord.length(), pos + keyWord.length()+1);
 					}
-					
+					if (before.compareTo("a") < 0 && after.compareTo("a") < 0)
+					{
+						return pos;
+					}
+					else
+					{
+						pos = searchString.indexOf(keyWord, pos+1);
+						//pos+1 looks for the next occurance of keyword
+					}
+				
 				}
 				return -1;
 			}
