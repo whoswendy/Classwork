@@ -39,7 +39,7 @@ public class WendyMain {
 					print("Hi, " + user + ". How are you?");
 					response = promptInput();
 					//response of how you feel
-					if(findKeyword(response, "good", 0) >= 0)
+					if(findKeyword(response,"good", 0) >= 0)
 					{
 						print("That's wonderful, so gald you feel good");
 					}
@@ -62,8 +62,11 @@ public class WendyMain {
 				//make lowercase
 				searchString = searchString.toLowerCase();
 				keyWord = keyWord.toLowerCase();
+				System.out.println("The phrase is " + searchString);
+				System.out.println("The keyword is " + keyWord);
 				//find first position of key word
-				int pos = searchString.indexOf(0);
+				int pos = searchString.indexOf(keyWord);
+				System.out.println("The keyword was found at " + pos);
 				while (pos >= 0)
 				{
 					//assume preceded and followed by space
@@ -73,24 +76,57 @@ public class WendyMain {
 					if (pos > 0)
 					{
 						before = searchString.substring(pos-1, pos);
+						System.out.println("The character before is  " + before);
 					}
 					//check if character after keyword exist
 					if(pos + keyWord.length() < searchString.length())
 					{
 						after = searchString.substring(pos + keyWord.length(), pos + keyWord.length()+1);
+						System.out.println("The character after is  " + after);
 					}
-					if (before.compareTo("a") < 0 && after.compareTo("a") < 0)
+					if (before.compareTo("a") < 0 && after.compareTo("a") < 0 && noNegations(searchString, pos))
 					{
+						System.out.println("Found keyword at " + pos);
 						return pos;
 					}
 					else
 					{
 						pos = searchString.indexOf(keyWord, pos+1);
 						//pos+1 looks for the next occurance of keyword
+						System.out.println("Did not find keyword " + keyWord + " checking position= " + pos);
 					}
 				
 				}
 				return -1;
+			}
+			
+			/**
+			THIS IS A HELPER METHOD. Helper method is designed for "helping" a larger method.
+			Because of this helper methods are generally private because only used by the methods they are helping. 
+			Also, when you do your project, I expect to see helper methods because they make code more readable.
+			*/
+			private static boolean noNegations(String searchString, int pos) {
+				//check to see if the word no is infront of pos
+				//check to see if there are 3 spaces in front 
+				//then check to see if "no" is there
+				
+				if(pos - 3 >= 0 && searchString.substring(pos-3, pos).equals("no "))
+				{
+					return false;
+				}
+				else if(pos - 4 >= 0 && searchString.substring(pos-4, pos).equals("not "))
+				{
+					return false;
+				}
+				else if(pos - 3 >= 0 && searchString.substring(pos-3, pos).equals("n't "))
+				{
+					return false;
+				}
+				else if(pos - 6 >= 0 && searchString.substring(pos-6, pos).equals("never "))
+				{
+					return false;
+				}
+				else return true;
 			}
 
 			public static String promptInput() {
