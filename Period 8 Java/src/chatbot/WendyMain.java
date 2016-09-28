@@ -62,11 +62,11 @@ public class WendyMain {
 				//make lowercase
 				searchString = searchString.toLowerCase();
 				keyWord = keyWord.toLowerCase();
-				System.out.println("The phrase is " + searchString);
-				System.out.println("The keyword is " + keyWord);
+				//System.out.println("The phrase is " + searchString);
+				//System.out.println("The keyword is " + keyWord);
 				//find first position of key word
 				int pos = searchString.indexOf(keyWord);
-				System.out.println("The keyword was found at " + pos);
+				//System.out.println("The keyword was found at " + pos);
 				while (pos >= 0)
 				{
 					//assume preceded and followed by space
@@ -76,24 +76,24 @@ public class WendyMain {
 					if (pos > 0)
 					{
 						before = searchString.substring(pos-1, pos);
-						System.out.println("The character before is  " + before);
+						//System.out.println("The character before is  " + before);
 					}
 					//check if character after keyword exist
 					if(pos + keyWord.length() < searchString.length())
 					{
 						after = searchString.substring(pos + keyWord.length(), pos + keyWord.length()+1);
-						System.out.println("The character after is  " + after);
+						//System.out.println("The character after is  " + after);
 					}
 					if (before.compareTo("a") < 0 && after.compareTo("a") < 0 && noNegations(searchString, pos))
 					{
-						System.out.println("Found keyword at " + pos);
+						//System.out.println("Found keyword at " + pos);
 						return pos;
 					}
 					else
 					{
 						pos = searchString.indexOf(keyWord, pos+1);
 						//pos+1 looks for the next occurance of keyword
-						System.out.println("Did not find keyword " + keyWord + " checking position= " + pos);
+						//System.out.println("Did not find keyword " + keyWord + " checking position= " + pos);
 					}
 				
 				}
@@ -143,32 +143,6 @@ public class WendyMain {
 				
 			}
 
-			public static void demonstateStringMethods()
-			{
-				String text1 = new String("Hello World");
-				//string is the only object with an alternate constructor
-				String text2 = "Hello World";//same as text1
-						
-				if(text1 .equals(text2))//== not how you compare objects use .equals()
-				{
-					print("These Strings are equal");
-				}
-				
-			//primitive types:booleans ints doubles - don't have objects, constructors, methods
-			//use == only for primitive types
-
-				print(text1);
-				print(text2);
-				
-				String word1 = "Aardvark";
-				String word2 = "Zyzzyva";
-				
-				if(word1.compareTo(word2) < 0)
-				{
-					print("word1 comes before word2");
-				}
-				
-			}
 			
 			public static void print(String s)
 			{
