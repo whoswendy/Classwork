@@ -139,6 +139,7 @@ public class WendyMain {
 				// TODO Auto-generated method stub
 				input = new Scanner(System.in);
 				user = "";
+				//initialize group chatbox below
 				school = (Chatbot) new WendySchool();
 				
 			}

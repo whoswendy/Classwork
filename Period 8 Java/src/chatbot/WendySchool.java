@@ -18,6 +18,11 @@ public class WendySchool implements Chatbot{
 				inSchoolLoop = false;
 				WendyMain.promptForever();
 			}
+			if(WendyMain.school.isTriggered(schoolResponse))
+			{
+				WendyMain.school.talk();
+				inSchoolLoop = false;
+			}
 			WendyMain.print("That's my favorite part about school too"); 
 		}
 	}
