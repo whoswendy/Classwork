@@ -10,24 +10,31 @@ public class ArrayPractice {
 		//initializingArraysExample();
 		
 		int x = 10;
-		increase(x);
+		x = increase(x);
 		System.out.println(x);
 		
 		String[] someStrings = new String[1000];
 		standardPopulate(someStrings);
 		String s = someStrings[999];
 		makeSpecial(s);
-		//print(someStrings);
+		someStrings[999] = getASpecialString();//Because getASpecialString returns a value the someStrings[999] gets assigned to that value
+		print(someStrings);
 	
 		long endTime = System.currentTimeMillis();
 		System.out.println("The process took " + (endTime - currentTime) + " miliseconds.");
-
+		
+		//pass by value when a parameter is passed and the value of the local variable created is not changed byt is assigned to something else
 
 	}
 	
+	private static String getASpecialString() {
+		// TODO Auto-generated method stub
+		return "THIS IS A SPECIAL STRING";
+	}
+
 	private static int increase(int i) {
 		// TODO Auto-generated method stub
-		return i+1;
+		return i=i+1;
 	}
 
 	private static void makeSpecial(String s) {
