@@ -5,6 +5,27 @@ public class AdvancedArrayMethods {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		String[] array = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o"};
+		sway(array,0,array.length-1);
+		printArray(array);
+		for(int i = 0; i<array.length; i++)
+		{
+			System.out.println(array[i]);
+		}
+			
+	}
+	
+
+	private static void sway(String[] ray, int a, int b) {
+		// TODO Auto-generated method stub
+		String temp = ray[a];//PLACEHOLDER
+		ray[a] = ray[b];
+		ray[b] = temp;
+	}
+
+
+	private static void methodA(int[] somerray) {
+		// TODO Auto-generated method stub
 		int[] array = new int[100];//full of 0s
 		int[] someArray = new int[50];
 		
@@ -16,13 +37,6 @@ public class AdvancedArrayMethods {
 		System.out.println(array[30]);//since someArray points to array, someArray[30] and array[30] = 1
 		
 		//methodA(someArray);
-		
-		
-	}
-
-	private static void methodA(int[] someArray) {
-		// TODO Auto-generated method stub
-		int[] newArray = new int[someArray.length];
 		
 	}
 	public static void copyArray(int[] original, int[] target)
