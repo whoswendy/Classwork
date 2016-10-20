@@ -32,7 +32,7 @@ static Scanner input = new Scanner(System.in) ;
 		// TODO Auto-generated method stub
 		boolean inLoop = true;
 		int triesRemaining = 3;
-		
+		//1 point while loop
 		while(inLoop)
 		{
 			System.out.println("Enter your password");

@@ -11,9 +11,9 @@ public class ArrayPracDemo {
 			//print(fiftyNumbers);
 			//randomize(fiftyNumbers,50);
 			//print(fiftyNumbers);
-			rollDice(fiftyNumbers, 2);
+			rollDice(fiftyNumbers, 4);
 			print(fiftyNumbers);
-			countResult(fiftyNumbers, 2);
+			countResult(fiftyNumbers, 4);
 			
 			long endTime = System.currentTimeMillis();
 			System.out.println("The process took " + (endTime - currentTime) + " miliseconds.");
@@ -22,7 +22,7 @@ public class ArrayPracDemo {
 	
 	private static void countResult(int[] array, int numberOfDice) {
 		// TODO Auto-generated method stub
-		int[] counter = new int[numberOfDice * 6 + 1];
+		int[] counter = new int[numberOfDice * 6 ];
 		//populate(counter);
 		for(int n: array)
 		{
@@ -45,7 +45,7 @@ public class ArrayPracDemo {
 			//array[i] = dice1 + dice2;
 			
 			int dice = 0;
-			for (int g = 1; g< numberOfDice; g++)
+			for (int g = 1; g< numberOfDice+1; g++)
 			{
 				dice = dice + (int) ( Math.random() * 6 + 1 );
 			}
