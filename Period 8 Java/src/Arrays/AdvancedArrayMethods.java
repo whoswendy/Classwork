@@ -6,8 +6,9 @@ public class AdvancedArrayMethods {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		String[] array = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o"};
-		sway(array,0,array.length-1);
-		printArray(array);
+		//swap(array,0,array.length-1);
+		shuffle(array);
+		
 		for(int i = 0; i<array.length; i++)
 		{
 			System.out.println(array[i]);
@@ -16,9 +17,24 @@ public class AdvancedArrayMethods {
 	}
 	
 
-	private static void sway(String[] ray, int a, int b) {
+
+
+	private static void shuffle(Object[] array) {
 		// TODO Auto-generated method stub
-		String temp = ray[a];//PLACEHOLDER
+		for(int  i = 0; i< array.length; i++)
+		{
+			int random = (int) (Math.random() * 6);
+			swap(array, i, random);
+		}
+		
+	}
+
+
+
+
+	private static void swap(Object[] ray, int a, int b) {
+		// TODO Auto-generated method stub
+		Object temp = ray[a];//PLACEHOLDER
 		ray[a] = ray[b];
 		ray[b] = temp;
 	}
