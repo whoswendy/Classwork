@@ -1,4 +1,4 @@
-package CageExplorer;
+package CaveExplorer;
 
 import java.util.Arrays;
 
