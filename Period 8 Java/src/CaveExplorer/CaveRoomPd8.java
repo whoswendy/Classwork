@@ -95,8 +95,6 @@ public class CaveRoomPd8 {
 	}
 
 	
-
-	
 	public Door getDoor(int dir){
 		return doors[dir];
 	}
@@ -106,14 +104,10 @@ public class CaveRoomPd8 {
 		description = string;
 	}
 
-
-
-	public void setConnection(CaveRoomPd8 caveRoomPd8) {
+	public void interpretAction(String input) {
 		// TODO Auto-generated method stub
 		
 	}
-
-
 
 
 }
