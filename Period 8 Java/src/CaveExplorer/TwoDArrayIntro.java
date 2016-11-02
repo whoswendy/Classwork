@@ -7,10 +7,74 @@ public class TwoDArrayIntro {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
+		boolean[][] mines = new boolean[6][6];
+		plantMines(mines);
+		String[][] field = createField(mines);
+		printPic(field);
 		
-		createImage();
 	}
 	
+	private static String[][] createField(boolean[][] mines) {
+		// TODO Auto-generated method stub
+		String[][] field = new String[mines.length][mines[0].length];
+		
+		for(int row = 0; row < field.length; row++)
+		{
+			for(int col = 0; col < field[row].length; col++)
+			{
+				if(mines[row][col])
+				{
+					field[row][col] = "X";
+				}
+				else
+				{
+					field[row][col] = countNearby(mines,row,col);
+				}
+			}
+		}
+		return field;
+	}
+
+	private static String countNearby(boolean[][] mines, int row, int col) {
+		// TODO Auto-generated method stub
+		for(int r = row - 1; r <= row+1; r++)
+		{
+			for(int c = col - 1; c <= col+1; c++)
+			{
+				if(r>=0 && r<mines.length && c>=0 && c<mines[0].length)//this is check that r and c are in the range of the array 
+				{
+					
+				}
+			}
+		}
+	
+	}
+
+	private static void plantMines(boolean[][] mines) {
+		// TODO Auto-generated method stub
+		int numberOfMines = 12;
+		while(numberOfMines > 0)
+		{
+			int row = (int) (Math.random() * mines.length);
+			int col = (int) (Math.random() * mines[0].length);
+			//this prevents the same mine from being selected twice
+			while(mines[row][col])
+			{
+				 row = (int) (Math.random() * mines.length);
+				 col = (int) (Math.random() * mines[0].length);
+			}
+			
+//			another possible way?
+//			if(!mines[row][col])
+//			{
+//			  mines[rows][col] = true;
+//				numberOfMines--;
+//			}
+			
+			numberOfMines--;
+		}
+	}
+
 	public static void createImage()
 	{
 		String[][] imgArr = new String[10][8];
@@ -41,7 +105,7 @@ public class TwoDArrayIntro {
 		//imgArr[1][4] = "-";
 		//imgArr[1][2] = "-";
 		//grassy field
-		for(int row = 5; row < imgArr.length; row++)
+		for(int row = 6; row < imgArr.length; row++)
 		{
 			for(int col = 0; col < imgArr[row].length; col++)
 			{
@@ -50,11 +114,33 @@ public class TwoDArrayIntro {
 				
 		}
 		
-		for(String[] row : imgArr)
+		for(int col = 0; col<imgArr[0].length;col++)
 		{
-			System.out.println(Arrays.toString(row));
+			imgArr[0][col] = "_";
+			imgArr[imgArr.length-1][col] = "_";
 		}
 		
+		for(int row = 1; row<imgArr[0].length+2;row++)
+		{
+			imgArr[row][0] = "|";
+			imgArr[row][imgArr[0].length-1] = "|";
+		}
+		
+		
+		printPic(imgArr);
+		
+	}
+	
+	public static void printPic(String[][] imgArr)
+	{
+		for(String[] row : imgArr)
+		{
+			for(String col: row)
+			{
+				System.out.print(col);
+			}
+			System.out.println();
+		}
 	}
 	
 	public static void main()
