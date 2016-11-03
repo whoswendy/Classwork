@@ -3,15 +3,14 @@ package CaveExplorer;
 import java.util.Arrays;
 
 public class TwoDArrayIntro {
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
+	
+	
+	public static void minesSweep()
+	{
 		boolean[][] mines = new boolean[6][6];
 		plantMines(mines);
 		String[][] field = createField(mines);
 		printPic(field);
-		
 	}
 	
 	private static String[][] createField(boolean[][] mines) {
@@ -36,18 +35,49 @@ public class TwoDArrayIntro {
 	}
 
 	private static String countNearby(boolean[][] mines, int row, int col) {
+//		checks only elements around main element
+//		for(int r = row - 1; r <= row+1; r++)
+//		{
+//			for(int c = col - 1; c <= col+1; c++)
+//			{
+//				if(r>=0 && r<mines.length && c>=0 && c<mines[0].length)//this is to check that r and c are in the range of the array 
+//				{
+//					verifies that something wont go out of bound Array.indexOutOfBound
+//				}
+//			}
+//		}
+		
+		//only consider actual elements BUT checks all possible elements so a lot SLOWER
+//		int count = 0;
+//		for(int r= 0; r<mines.length; r++)
+//		{
+//			for(int c=0; c<mines[r].length;c++)
+//			{
+//				if(Math.abs(r-row) + Math.abs(c-col) == 1 && mines[r][c])
+//				{//using taxi cab distance to check for mines in the north,east,west and south
+//					count++;
+//				}
+//			}
+//		}
+//		return "" + count;
+		
+		//this method allows you to be most specific for example you only want north and east
+		int count = 0;
+		count += isValidAndTrue(mines,row-1,col);
+		count += isValidAndTrue(mines,row+1,col);
+		count += isValidAndTrue(mines,row,col-1);
+		count += isValidAndTrue(mines,row,col+1);
+		return "" + count;
+		
+	}
+
+	private static int isValidAndTrue(boolean[][] mines, int i, int j) {
 		// TODO Auto-generated method stub
-		for(int r = row - 1; r <= row+1; r++)
+		if(i >= 0 && i < mines.length && j >= 0 && j < mines[0].length && mines[i][j])
 		{
-			for(int c = col - 1; c <= col+1; c++)
-			{
-				if(r>=0 && r<mines.length && c>=0 && c<mines[0].length)//this is check that r and c are in the range of the array 
-				{
-					
-				}
-			}
+			return 1;
 		}
-	
+		else return 0;
 	}
 
 	private static void plantMines(boolean[][] mines) {
@@ -57,21 +87,21 @@ public class TwoDArrayIntro {
 		{
 			int row = (int) (Math.random() * mines.length);
 			int col = (int) (Math.random() * mines[0].length);
+			
 			//this prevents the same mine from being selected twice
-			while(mines[row][col])
-			{
-				 row = (int) (Math.random() * mines.length);
-				 col = (int) (Math.random() * mines[0].length);
-			}
+//			while(mines[row][col])
+//			{
+//				 row = (int) (Math.random() * mines.length);
+//				 col = (int) (Math.random() * mines[0].length);
+//			}
+//			numberOfMines--;
 			
 //			another possible way?
-//			if(!mines[row][col])
-//			{
-//			  mines[rows][col] = true;
-//				numberOfMines--;
-//			}
-			
-			numberOfMines--;
+			if(!mines[row][col])
+			{
+			  mines[row][col] = true;
+				numberOfMines--;
+			}
 		}
 	}
 
