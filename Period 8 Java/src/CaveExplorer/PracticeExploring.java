@@ -15,8 +15,8 @@ public class PracticeExploring {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		arr2D = new String[5][5];
-		pic = new String[5][5];
+		arr2D = new String[10][10];
+		pic = new String[10][10];
 		
 		for(int row = 0; row < arr2D.length; row++)
 		{
@@ -64,6 +64,7 @@ public class PracticeExploring {
 				pic[row][col] = " ";
 			}
 		}
+		drawGrid(grid);
 		grid[starti][startj] = "X";
 	}
 
@@ -129,6 +130,31 @@ public class PracticeExploring {
 				System.out.print(col);
 			}
 			System.out.println();
+		}
+	}
+	
+	private static void drawGrid(String[][] field) {
+		// TODO Auto-generated method stub
+		for(int row = 0; row <field.length;row++)
+		{
+			for(int col = 0; col<field[0].length;col++)
+			{
+				field[row][col] = "";
+			}
+		}
+		for(int row = 0; row <field.length;row++)
+		{
+			for(int col = 0; col<field[0].length;col++)
+			{
+				field[row][col] = "_";
+			}
+		}
+		for(int row = 0; row <field.length;row++)
+		{
+			for(int col = 0; col<field[0].length;col+=2)
+			{
+				field[row][col] = "|_|";
+			}
 		}
 	}
 	

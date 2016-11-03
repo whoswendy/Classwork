@@ -4,25 +4,32 @@ public class PracticeFIeld {
 	
 	public static void main(String[] args)
 	{
-		String[][] field = new String[15][15];
+		String[][] field = new String[4][5];
 		drawGrid(field);
 		printPic(field);
 	}
 
 	private static void drawGrid(String[][] field) {
 		// TODO Auto-generated method stub
-		for(int row = 0; row < field.length; row++)
+		for(int row = 0; row <field.length;row++)
 		{
-			for (int col = 0; col < field[row].length; col++)
+			for(int col = 0; col<field[0].length;col++)
 			{
-				if(col == field[row].length-1)
-				{
-					field[row][col] = "|";
-				}
-				else
-				{
-					field[row][col] = "|_";
-				}
+				field[row][col] = "";
+			}
+		}
+		for(int row = 0; row <field.length;row++)
+		{
+			for(int col = 0; col<field[0].length;col++)
+			{
+				field[row][col] = "_";
+			}
+		}
+		for(int row = 0; row <field.length;row++)
+		{
+			for(int col = 0; col<field[0].length;col+=2)
+			{
+				field[row][col] = "|_|";
 			}
 		}
 	}
