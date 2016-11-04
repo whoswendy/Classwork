@@ -144,7 +144,7 @@ public class PracticeExploring {
 		}
 		for(int row = 0; row <field.length;row++)
 		{
-			for(int col = 0; col<field[0].length;col++)
+			for(int col = 0; col<field[0].length-1;col++)
 			{
 				field[row][col] = "_";
 			}

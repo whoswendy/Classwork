@@ -15,7 +15,7 @@ public class PracticeFIeld {
 		{
 			for(int col = 0; col<field[0].length;col++)
 			{
-				field[row][col] = "";
+				field[row][col] = "_";
 			}
 		}
 		for(int row = 0; row <field.length;row++)
