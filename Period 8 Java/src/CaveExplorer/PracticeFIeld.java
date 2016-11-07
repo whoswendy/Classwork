@@ -32,6 +32,7 @@ public class PracticeFIeld {
 				field[row][col] = "|_|";
 			}
 		}
+		
 	}
 
 	public static void printPic(String[][] imgArr)
