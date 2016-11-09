@@ -13,6 +13,7 @@ public class GameStartEvent implements Playable {
 	public void play() {
 		// TODO Auto-generated method stub
 		readSequence(SEQUENCE_1);
+		System.out.println("Come on, tell me you like puzzles, say yes");
 		while(CaveExplorer.in.nextLine().toLowerCase().indexOf("yes") < 0)
 		{
 			CaveExplorer.print("Common, you know you like puzzles, say yes!");
@@ -28,7 +29,8 @@ public class GameStartEvent implements Playable {
 		{
 			CaveExplorer.print(s);
 			CaveExplorer.print("- - - press enter - - -");
-			CaveExplorer.in.nextLine();
+			CaveExplorer.in.nextLine();	
+			
 		}
 	}
 
