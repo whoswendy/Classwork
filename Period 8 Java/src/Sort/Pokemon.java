@@ -33,7 +33,7 @@ public class Pokemon {
 
 	public void setHP(int newHP) {
 		// TODO Auto-generated method stub
-		
+		hp = newHP;
 	}
 
 
