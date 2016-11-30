@@ -5,7 +5,7 @@ public class RecursionIntro {
 	
 	public static void main(String[] args) {
 		
-		hanoiSolution(3,"A", "B", "C");
+		hanoiSolution(8,"A", "B", "C");
 		//System.out.println(factorialRecursion(10));
 		
 		//factorial(10);
