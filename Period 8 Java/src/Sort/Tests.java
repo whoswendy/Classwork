@@ -20,7 +20,7 @@ public class Tests {
 		    return sum/values.length;
 	}
 	
-	public boolean isPrime(int n)
+	public static boolean isPrime(int n)
 	{
 		 boolean prime = true;
 		 for(int i = 2; i<n; i++)

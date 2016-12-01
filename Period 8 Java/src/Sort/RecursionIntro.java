@@ -5,7 +5,9 @@ public class RecursionIntro {
 	
 	public static void main(String[] args) {
 		
-		hanoiSolution(8,"A", "B", "C");
+		int n = 40;
+		System.out.println("The " + n + "th Fibonacci is " + fibonacci(n) );
+		//hanoiSolution(8,"A", "B", "C");
 		//System.out.println(factorialRecursion(10));
 		
 		//factorial(10);
@@ -13,11 +15,26 @@ public class RecursionIntro {
 		//helloWorld();
 	}
 	
+	private static int fibonacci(int n) {
+		if(n<=1)
+		{
+			return 1;
+		}
+		else
+		{
+			int previous = fibonacci(n-1); 
+			//print("Before we find fibonacci " + n + " we need to find fibonacci " + (n-1) + ", which is " + previous);
+			int beforePrevious = fibonacci(n-2);
+			return previous + beforePrevious;
+		}
+
+	}
+
 	private static int count = 1;
 	
 	public static void print(String s)
 	{
-		System.out.println("Move #" + count + " " + s);
+		System.out.println(s);
 		count++;
 	}
 
@@ -29,6 +46,7 @@ public class RecursionIntro {
 		}
 		else
 		{
+			System.out.println("In order to move " + numberOfDiscs + " over to peg" + endPeg + " we must move " + (numberOfDiscs - 1) + " over to Peg" + midPeg+ " first.");
 			hanoiSolution(numberOfDiscs-1, startPeg, endPeg, midPeg);
 			hanoiSolution(1, startPeg, midPeg, endPeg);
 			hanoiSolution(numberOfDiscs-1, midPeg, startPeg, endPeg);
