@@ -12,12 +12,20 @@ public class RecursionIntro {
 		
 		//helloWorld();
 	}
+	
+	private static int count = 1;
+	
+	public static void print(String s)
+	{
+		System.out.println("Move #" + count + " " + s);
+		count++;
+	}
 
 	private static void hanoiSolution(int numberOfDiscs, String startPeg, String midPeg, String endPeg) {
 		// TODO Auto-generated method stub
 		if(numberOfDiscs <= 1)
 		{
-			System.out.println("Move " + startPeg + " to " + endPeg);
+			print("Move " + startPeg + " to " + endPeg);
 		}
 		else
 		{
