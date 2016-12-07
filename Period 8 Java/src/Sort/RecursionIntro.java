@@ -6,8 +6,8 @@ public class RecursionIntro {
 	public static void main(String[] args) {
 		
 		int n = 40;
-		System.out.println("The " + n + "th Fibonacci is " + fibonacci(n) );
-		//hanoiSolution(8,"A", "B", "C");
+		//System.out.println("The " + n + "th Fibonacci is " + fibonacci(n) );
+		hanoiSolution(8,"A", "B", "C");
 		//System.out.println(factorialRecursion(10));
 		
 		//factorial(10);
@@ -93,7 +93,7 @@ public class RecursionIntro {
 			System.out.println("Hello World x" + i);
 		}
 		System.out.println("Without using a forloop");
-		forLoop(5, new Action(){
+		forLoop(5, new Action(){//passing a method for a parameter = anonymous inner type = an implementation of an interface written into a parameter
 			
 			private int value = 0;
 
