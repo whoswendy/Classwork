@@ -29,31 +29,31 @@ public abstract class Component implements Visible {
 	@Override
 	public BufferedImage getImage() {
 		// TODO Auto-generated method stub
-		return null;
+		return image;
 	}
 
 	@Override
 	public int getX() {
 		// TODO Auto-generated method stub
-		return 0;
+		return x;
 	}
 
 	@Override
 	public int getY() {
 		// TODO Auto-generated method stub
-		return 0;
+		return y;
 	}
 
 	@Override
 	public int getWidth() {
 		// TODO Auto-generated method stub
-		return 0;
+		return w;
 	}
 
 	@Override
 	public int getHeight() {
 		// TODO Auto-generated method stub
-		return 0;
+		return h;
 	}
 
 	@Override
@@ -65,7 +65,7 @@ public abstract class Component implements Visible {
 	@Override
 	public void update() {
 		// TODO Auto-generated method stub
-
+		update(image.createGraphics());
 	}
 
 }
