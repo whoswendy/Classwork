@@ -16,8 +16,8 @@ public abstract class GUIApplication extends JFrame{
 		//setUndecorated(true);
 		int x = 0;
 		int y = 0;
-		int width = 1000;
-		int height = 800;
+		int width = 600;
+		int height = 400;
 		setBounds(x,y,width,height);
 		initScreen();
 		setVisible(true);
