@@ -15,7 +15,7 @@ public class TextLabel extends Component {
 		super(x, y, w, h);
 		// TODO Auto-generated constructor stub
 		this.text = tex;
-		font = "Helvetica";
+		font = "Times New Roman";
 		size = 30;
 		update();
 		
@@ -24,16 +24,19 @@ public class TextLabel extends Component {
 	public void setText(String s)
 	{
 		this.text = s; 
+		update();
 	}
 	
 	public void setFont(String f)
 	{
 		this.font = f;
+		update();
 	}
 	
 	public void setSize(int n)
 	{
 		this.size = n;
+		update();
 	}
 	public String getText() {
 		return text;
@@ -49,6 +52,7 @@ public class TextLabel extends Component {
 	@Override
 	public void update(Graphics2D g) {
 		// TODO Auto-generated method stub
+		g = clear();//clears image and gets new graphic
 		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		g.setColor(Color.black);
 		if(text != null)

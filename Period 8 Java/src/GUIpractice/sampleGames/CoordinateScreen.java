@@ -1,5 +1,7 @@
 package GUIpractice.sampleGames;
 
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 
 import GUIpractice.Screen;
@@ -7,7 +9,7 @@ import GUIpractice.components.TextArea;
 import GUIpractice.components.TextLabel;
 import GUIpractice.components.Visible;
 
-public class CoordinateScreen extends Screen {
+public class CoordinateScreen extends Screen implements MouseMotionListener {
 
 	private TextLabel label;
 	private TextArea paragraph;
@@ -22,10 +24,38 @@ public class CoordinateScreen extends Screen {
 	@Override
 	public void initObjects(ArrayList<Visible> viewObjects) {
 		// TODO Auto-generated method stub
-	//	label = new TextLabel(40,45,760,40,"sample text");
-		paragraph = new TextArea(40,85,760,40,"This is a whole paragraph,This is a whole paragraph,This is a whole paragraph,This is a whole paragraph");
-		//viewObjects.add(label);//adds into array list
-		viewObjects.add(paragraph);
+		label = new TextLabel(40,45,760,40,"");
+		//paragraph = new TextArea(40,85,550,40,"This is a whole paragraph,This is a whole paragraph,This is a whole paragraph,This is a whole paragraph,This is a whole paragraph,This is a whole paragraph,This is a whole paragraph");
+		viewObjects.add(label);//adds into array list
+		//viewObjects.add(paragraph);
+	}
+
+
+	@Override
+	public void mouseDragged(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void mouseMoved(MouseEvent m) {
+		// TODO Auto-generated method stub
+		label.setText("Mouse at " + m.getX() + "," + m.getY());
+		if(m.getX() > 500 && m.getY() < 400)
+		{
+			label.setText("Hello");
+		}
+		if(m.getY() > 400 && m.getX() < 500)
+		{
+			label.setText(":)");
+		}
+		
+	}
+	
+	public MouseMotionListener getMouseMotionListener()
+	{
+		return this;
 	}
 
 }

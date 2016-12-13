@@ -13,6 +13,9 @@ public class MouseFollower extends GUIApplication {
 	public static void main(String[] args)
 	{
 		new MouseFollower();
+		GUIApplication game = new MouseFollower();
+		Thread app = new Thread(game);
+		app.start();
 	}
 	
 	@Override
