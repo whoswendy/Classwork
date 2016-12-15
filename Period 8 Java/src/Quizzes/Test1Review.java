@@ -2,7 +2,7 @@ package Quizzes;
 
 import java.util.Scanner;
 
-public class Quiz1 {
+public class Test1Review {
 
 static Scanner input = new Scanner(System.in) ;
 	
