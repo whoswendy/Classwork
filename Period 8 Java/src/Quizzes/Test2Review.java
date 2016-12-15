@@ -10,6 +10,9 @@ public class Test2Review {
 		grid = new boolean[5][5];
 		printGrid(grid);
 		buttonClick(3,3);
+		printGrid(grid);
+		buttonClick(3,3);
+		printGrid(grid);
 	}
 	
 	public static void switchRow(boolean[] row, int x)
@@ -19,7 +22,7 @@ public class Test2Review {
 		{
 			if(x+i >= 0 && x+1 < row.length)
 			{
-				row[x+1] = !row[x+1];
+				row[x+1] = !row[x+1];//point if value is switched
 			}
 		}
 	}
@@ -27,6 +30,17 @@ public class Test2Review {
 	public static void switchColumn(boolean[][] grid, int r, int c)
 	{
 		//switches ABOVE and BELOW the value in row r and column c
+		switchIfValid(grid,r-1,c);//point for correct element grid[r-1][c]
+		switchIfValid(grid,r,c);
+		switchIfValid(grid,r+1,c);//point for correct element grid[r+1][c]
+	}
+	
+	public static void switchIfValid(boolean[][] grid, int r, int c)
+	{
+		if(r >= 0 && r < grid.length && c >= 0 && c < grid[r].length)
+		{
+			grid[r][c] = !grid[r][c];
+		}
 	}
 	
 	
@@ -53,7 +67,7 @@ public class Test2Review {
 		}
 		System.out.println("You have solved the puzzle");
 		
-		//Second Solution
+//Second Solution
 //		boolean win = true;
 //		for(int row = 0; row<grid.length; row++)
 //		{
@@ -93,6 +107,7 @@ public class Test2Review {
 				}
 				System.out.println();
 			}
+			System.out.println("");
 	}
 	
 	

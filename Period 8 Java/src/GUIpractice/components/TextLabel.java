@@ -12,12 +12,12 @@ public class TextLabel extends Component {
 	private int size;
 	
 	public TextLabel(int x, int y, int w, int h, String tex) {
-		super(x, y, w, h);
+		super(x, y, w, h);//updates super
 		// TODO Auto-generated constructor stub
 		this.text = tex;
 		font = "Times New Roman";
 		size = 30;
-		update();
+		update();//updates with new info
 		
 	}
 	

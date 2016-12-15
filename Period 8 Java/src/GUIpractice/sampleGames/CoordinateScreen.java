@@ -6,6 +6,7 @@ import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 
 import GUIpractice.Screen;
+import GUIpractice.components.Action;
 import GUIpractice.components.Button;
 import GUIpractice.components.TextArea;
 import GUIpractice.components.TextLabel;
@@ -31,7 +32,11 @@ public class CoordinateScreen extends Screen implements MouseMotionListener {
 		//paragraph = new TextArea(40,85,550,40,"This is a whole paragraph,This is a whole paragraph,This is a whole paragraph,This is a whole paragraph,This is a whole paragraph,This is a whole paragraph,This is a whole paragraph");
 		//viewObjects.add(label);//adds into array list
 		//viewObjects.add(paragraph);
-		but = new Button(20,30,100,40,"Button",Color.blue,null);
+		but = new Button(20,30,100,40,"Button",Color.blue,new Action(){
+			public void act(){
+				
+			}
+		});
 		viewObjects.add(but);
 	}
 
