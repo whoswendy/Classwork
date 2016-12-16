@@ -71,7 +71,7 @@ public class Button extends TextLabel implements Clickable{
 	@Override
 	public void act() {
 		// TODO Auto-generated method stub
-		
+		action.act();
 	}
 
 }
