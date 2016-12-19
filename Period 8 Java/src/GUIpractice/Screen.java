@@ -80,6 +80,72 @@ public abstract class Screen {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	public void remove(Visible v)
+	{
+		//Removes a visible from the screen
+		/* ArrayList Notes 
+		 * While this method is very simple do not underestimate 
+		 * the trickiness of removing items in an arrayList
+		 * it causes indexes to change
+		 * Example:
+		 * Suppose you have an ArrayList<Integer> and you want to remove all values greater than 5
+		 * THIS IS BAD:
+		 * 
+		 * for(int i = 0; i < arraylist.size(); i++)
+		 * {
+		 * 		if(arraylist.get(i) > 5) list.remove(i);
+		 * }
+		 * 
+		 * {4,5,6,7} 1st integer to remove is 6, since removed 7 moves from index 3 to 2
+		 * Your list is now {4,5,7} after you increment i, i = 3 which is outOfBounds and 7 never gets removed
+		 * Instead when an object is removed decrease i to compensate for change in size
+		 * 
+		 * THIS IS GOOD:
+		 * for(int i = 0; i < arraylist.size(); i++)
+		 * {
+		 * 		if(arraylist.get(i) > 5) 
+		 *	 	{
+		 * 			list.remove(i);
+		 * 			i--;
+		 * 		}
+		 * }
+		 * 
+		 * */
+		viewObjects.remove(v);//this removes the object that has the same identity as v
+		//not an object equal to v
+	}
+	
+	public void moveToFront(Visible v)
+	{
+		if(viewObjects.contains(v))
+		{
+			viewObjects.remove(v);
+			viewObjects.add(v);//very last object in the list
+		}
+	}
+	
+	public void moveToBack(Visible v)
+	{
+		if(viewObjects.contains(v))
+		{
+			viewObjects.remove(v);
+			viewObjects.add(0,v);
+			//viewObjects.add(n,v);
+			//moves whatever object with index >= n to index n+1, increases size by 1, adds object to index n 
+		}
+	}
+	
+	public void moveToN(int n,Visible v)
+	{
+		if(viewObjects.contains(v))
+		{
+			viewObjects.remove(v);
+			viewObjects.add(n,v);
+			//moves whatever object with index >= n to index n+1, increases size by 1, adds object to index n 
+		}
+	}
+	
 
 
 }
