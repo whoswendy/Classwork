@@ -39,11 +39,10 @@ public class CoordinateScreen extends Screen implements MouseMotionListener, Mou
 //				
 //			}
 //		});
-		button = new Button(40,50,100,30,"Button",new Color(0,76,153), new Action(){
+		button = new Button(200,200,100,30,"Button",new Color(0,76,153), new Action(){
 			public void act()
 			{
-				
-				MouseCoordinateGame.game.setScreen(MouseCoordinateGame.practiceScreen);
+				MouseFollower.game.setScreen(MouseFollower.practiceScreen);
 			}
 			
 		});
@@ -81,6 +80,11 @@ public class CoordinateScreen extends Screen implements MouseMotionListener, Mou
 	}
 	
 	public MouseMotionListener getMouseMotionListener()
+	{
+		return this;
+	}
+	
+	public MouseListener getMouseListener()
 	{
 		return this;
 	}

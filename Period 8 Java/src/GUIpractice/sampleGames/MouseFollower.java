@@ -7,13 +7,15 @@ public class MouseFollower extends GUIApplication {
 	/**
 	 * 
 	 */
-	
-	private CoordinateScreen coordScreen;
+	public static CoordinateScreen coordScreen;
+	public static PractScreen practiceScreen;
+	public static GraphicScreen grScreen;
+	public static MouseFollower game;
+
 	
 	public static void main(String[] args)
 	{
-		new MouseFollower();
-		GUIApplication game = new MouseFollower();
+		game = new MouseFollower();
 		Thread app = new Thread(game);
 		app.start();
 	}
@@ -21,7 +23,10 @@ public class MouseFollower extends GUIApplication {
 	@Override
 	protected void initScreen() {
 		// TODO Auto-generated method stub
+		practiceScreen = new PractScreen(getWidth(),getHeight());
 		coordScreen = new CoordinateScreen(getWidth(),getHeight());
+		grScreen = new GraphicScreen(getWidth(),getHeight());
+		
 		setScreen(coordScreen);
 	}
 
