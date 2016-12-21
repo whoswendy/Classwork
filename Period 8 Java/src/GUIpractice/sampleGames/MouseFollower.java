@@ -10,6 +10,8 @@ public class MouseFollower extends GUIApplication {
 	public static CoordinateScreen coordScreen;
 	public static PractScreen practiceScreen;
 	public static GraphicScreen grScreen;
+	public static PracClickableScreen prCScreen;
+	
 	public static MouseFollower game;
 
 	
@@ -26,8 +28,9 @@ public class MouseFollower extends GUIApplication {
 		practiceScreen = new PractScreen(getWidth(),getHeight());
 		coordScreen = new CoordinateScreen(getWidth(),getHeight());
 		grScreen = new GraphicScreen(getWidth(),getHeight());
+		prCScreen = new PracClickableScreen(getWidth(),getHeight());
 		
-		setScreen(coordScreen);
+		setScreen(prCScreen);
 	}
 
 }

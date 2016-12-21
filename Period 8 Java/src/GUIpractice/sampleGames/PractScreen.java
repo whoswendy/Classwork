@@ -40,6 +40,7 @@ public class PractScreen extends Screen implements MouseListener{
 
 		});
 		viewObjects.add(back);
+		
 		addP = new Button(200,180,100,50,"ADD",new Color(0,76,153), new Action(){
 			public void act()
 			{
@@ -50,7 +51,8 @@ public class PractScreen extends Screen implements MouseListener{
 
 		});
 		viewObjects.add(addP);
-		evolution = addP = new Button(200,300,100,50,"EVOLVE",new Color(0,76,153), new Action(){
+		
+		evolution = new Button(200,300,100,50,"EVOLVE",new Color(0,76,153), new Action(){
 			public void act()
 			{
 				MouseFollower.game.setScreen(MouseFollower.grScreen);
@@ -70,6 +72,10 @@ public class PractScreen extends Screen implements MouseListener{
 		if(addP.isHovered(e.getX(), e.getY()))
 		{
 			addP.act();
+		}
+		if(evolution.isHovered(e.getX(), e.getY()))
+		{
+			evolution.act();
 		}
 		
 	}

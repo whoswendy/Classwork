@@ -4,20 +4,17 @@ public class ClickableGraphic extends Graphic implements Clickable{
 	
 	private Action action;
 
-	public ClickableGraphic(int x, int y, String imageLocation, Action act) {
+	public ClickableGraphic(int x, int y, String imageLocation) {
 		super(x, y, imageLocation);
-		this.action = act;
 
 	}
 
-	public ClickableGraphic(int x, int y, int w, int h, String imageLocation, Action act) {
+	public ClickableGraphic(int x, int y, int w, int h, String imageLocation) {
 		super(x, y, w, h, imageLocation);
-		this.action = act;
 	}
 
-	public ClickableGraphic(int x, int y, double scale, String imageLocation, Action act) {
+	public ClickableGraphic(int x, int y, double scale, String imageLocation) {
 		super(x, y, scale, imageLocation);
-		this.action = act;
 	}
 
 	@Override
@@ -25,11 +22,20 @@ public class ClickableGraphic extends Graphic implements Clickable{
 		// TODO Auto-generated method stub
 		return x >= getX() && x <= getX() + getWidth() && y >= getY() && y <= getY() + getHeight();
 	}
+	
+	public void setAction(Action a)
+	{
+		this.action = a;
+	}
 
 	@Override
 	public void act() {
 		// TODO Auto-generated method stub
-		action.act();
+		if(action != null)
+		{
+			action.act();
+			
+		}
 		
 	}
 
