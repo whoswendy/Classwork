@@ -78,12 +78,12 @@ public class CoordinateScreen extends Screen implements MouseMotionListener, Mou
 		}
 		
 	}
-	
+	@Override
 	public MouseMotionListener getMouseMotionListener()
 	{
 		return this;
 	}
-	
+	@Override
 	public MouseListener getMouseListener()
 	{
 		return this;

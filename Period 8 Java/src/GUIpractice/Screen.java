@@ -116,6 +116,11 @@ public abstract class Screen {
 		//not an object equal to v
 	}
 	
+	public void addObject(Visible v)
+	{
+		viewObjects.add(v);
+	}
+	
 	public void moveToFront(Visible v)
 	{
 		if(viewObjects.contains(v))
