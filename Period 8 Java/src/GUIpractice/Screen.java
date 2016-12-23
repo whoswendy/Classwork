@@ -36,6 +36,16 @@ public abstract class Screen {
 		update();
 		
 	}
+	
+	public int getWidth()
+	{
+		return width;
+	}
+	
+	public int getHeight()
+	{
+		return height;
+	}
 
 	public void update() {
 		//this is where you draw stuff
