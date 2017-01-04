@@ -10,6 +10,7 @@ import GUIpractice.Screen;
 import GUIpractice.components.Action;
 import GUIpractice.components.Button;
 import GUIpractice.components.Graphic;
+import GUIpractice.components.MovingComponent;
 import GUIpractice.components.TextArea;
 import GUIpractice.components.TextLabel;
 import GUIpractice.components.Visible;
@@ -42,18 +43,22 @@ public class CoordinateScreen extends Screen implements MouseMotionListener, Mou
 		button = new Button(200,200,100,30,"Button",new Color(0,76,153), new Action(){
 			public void act()
 			{
-				MouseFollower.game.setScreen(MouseFollower.practiceScreen);
+				//MouseFollower.game.setScreen(MouseFollower.practiceScreen);
 			}
 			
 		});
 		//img = new Graphic(50,50, 0.50 ,"resources/sampleImages/pikaCHU.png");
 		//img = new Graphic(50,50,100,100,"resources/sampleImages/pikaCHU.png");
 		//viewObjects.add(paragraph);
-		viewObjects.add(label);//adds into array list
-		viewObjects.add(button);
+		//viewObjects.add(label);//adds into array list
+		//viewObjects.add(button);
 		//viewObjects.add(but);
 		//viewObjects.add(img);
 		
+		MovingComponent mc = new MovingComponent(30,60,80,80);
+		mc.setVy(3.00);//3 pixel every ms
+		mc.play();
+		viewObjects.add(mc);
 	}
 
 

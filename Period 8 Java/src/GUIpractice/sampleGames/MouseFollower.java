@@ -30,7 +30,7 @@ public class MouseFollower extends GUIApplication {
 		grScreen = new GraphicScreen(getWidth(),getHeight());
 		prCScreen = new PracClickableScreen(getWidth(),getHeight());
 		
-		setScreen(prCScreen);
+		setScreen(coordScreen);
 	}
 
 }
