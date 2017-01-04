@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import GUIpractice.ClickableScreen;
 import GUIpractice.WhackAMole.MoleInterface;
 import GUIpractice.WhackAMole.PlayerInterface;
+import GUIpractice.components.Action;
 import GUIpractice.components.Button;
 import GUIpractice.components.TextLabel;
 import GUIpractice.components.Visible;
@@ -86,8 +87,8 @@ public class SimonScreenWendy extends ClickableScreen implements Runnable{
 		{
 			final ButtonInterfaceWendy b = getAButton();
 			b.setColor(colors[i]);
-			b.setX();
-			b.setY();
+			b.setX(i * 100);
+			b.setY(i * 100);
 			b.setAction(new Action(){
 				
 				public void act(){
@@ -96,9 +97,11 @@ public class SimonScreenWendy extends ClickableScreen implements Runnable{
 						Thread blink = new Thread(new Runnable(){
 
 							public void run(){
-							}
+							
 								b.highlight();
-							});
+								
+							}
+						});
 					}
 				}
 			});
