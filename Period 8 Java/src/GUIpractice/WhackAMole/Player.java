@@ -19,6 +19,7 @@ public class Player extends Component implements PlayerInterface {
 	public void increaseScore(int i) {
 		// TODO Auto-generated method stub
 		score++;
+		update();
 	}
 
 	@Override

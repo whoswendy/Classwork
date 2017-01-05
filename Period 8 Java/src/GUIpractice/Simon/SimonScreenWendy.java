@@ -32,7 +32,7 @@ public class SimonScreenWendy extends ClickableScreen implements Runnable{
 	@Override
 	public void initAllObjects(ArrayList<Visible> viewObjects) {
 		// TODO Auto-generated method stub
-		addButtons();
+		addButtons(viewObjects);
 		progress = getProgress();
 		label = new TextLabel(130,230,300,40,"Let's play Simon!");
 		moves = new ArrayList<MoveInterfaceWendy>();
@@ -43,7 +43,6 @@ public class SimonScreenWendy extends ClickableScreen implements Runnable{
 		rounds = 0;
 		viewObjects.add(progress);
 		viewObjects.add(label);
-
 	}
 
 	private MoveInterfaceWendy randomMove() {
@@ -79,7 +78,7 @@ public class SimonScreenWendy extends ClickableScreen implements Runnable{
 	}
 	
 	
-	private void addButtons() {
+	private void addButtons(ArrayList<Visible> viewObjects) {
 		// TODO Auto-generated method stub
 		int NumOfButtons = 6;
 		Color[] colors = {Color.red,Color.blue,Color.pink,Color.green,Color.orange,Color.yellow};
@@ -87,8 +86,8 @@ public class SimonScreenWendy extends ClickableScreen implements Runnable{
 		{
 			final ButtonInterfaceWendy b = getAButton();
 			b.setColor(colors[i]);
-			b.setX(i * 100);
-			b.setY(i * 100);
+			b.setX((int) (i * 100 * Math.sin(Math.PI/3)));//x=rsin(beta)
+			b.setY((int) (i * 100 * Math.cos(Math.PI/3)));//y=rcos(beta)
 			b.setAction(new Action(){
 				
 				public void act(){
@@ -99,12 +98,34 @@ public class SimonScreenWendy extends ClickableScreen implements Runnable{
 							public void run(){
 							
 								b.highlight();
-								
+								try {
+									Thread.sleep(800);
+									b.dim();
+								} catch (InterruptedException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
 							}
 						});
+						blink.start();
+						if(b == moves.get(sequenceIndex).getButton())
+						{
+							sequenceIndex++;
+						}
+						else
+						{
+							ProgressInterfaceWendy.gameOver();
+						}
+						
+						if(sequenceIndex == moves.size())
+						{
+							Thread nextRound = new Thread(SimonScreenWendy.this);
+							nextRound.start();
+						}
 					}
 				}
 			});
+			viewObjects.add(b);
 		}
 	}
 
@@ -112,6 +133,59 @@ public class SimonScreenWendy extends ClickableScreen implements Runnable{
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
+		label.setText("");
+		nextRound();
+		
+		
+	}
+
+	private void nextRound() {
+		// TODO Auto-generated method stub
+		acceptedInput = false;
+		rounds ++;
+		randomMove();
+		ProgressInterfaceWendy.setRound(rounds);
+		ProgressInterfaceWendy.setSequenceSize(moves.size());
+		changeText("Simon's Turn");
+		label.setText("");
+		playSequence();
+		changeText("Your Turn");
+		acceptedInput = true;
+		sequenceIndex = 0;
+		
+	}
+
+	private void playSequence() {
+		// TODO Auto-generated method stub
+		ButtonInterfaceWendy b = null;
+		for(int i = 0; i < moves.size(); i++)
+		{
+			if(b != null)
+			{
+				b.dim();
+			}
+			b = getAButton();
+			b.highlight();
+			int sleepTime = 1000*3/rounds+500;
+			try {
+				Thread.sleep(sleepTime);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		b.dim();
+	}
+
+	private void changeText(String string) {
+		// TODO Auto-generated method stub
+		try {
+			Thread.sleep(1000);
+			label.setText(string);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 

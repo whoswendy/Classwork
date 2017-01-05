@@ -17,6 +17,8 @@ public interface ButtonInterfaceWendy extends Clickable {
 	
 	void highlight();
 
+	void dim();
+
 	
 	
 
