@@ -114,7 +114,7 @@ public class SimonScreenWendy extends ClickableScreen implements Runnable{
 						}
 						else
 						{
-							ProgressInterfaceWendy.gameOver();
+							getProgress().gameOver();
 						}
 						
 						if(sequenceIndex == moves.size())
@@ -143,8 +143,8 @@ public class SimonScreenWendy extends ClickableScreen implements Runnable{
 		acceptedInput = false;
 		rounds ++;
 		randomMove();
-		ProgressInterfaceWendy.setRound(rounds);
-		ProgressInterfaceWendy.setSequenceSize(moves.size());
+		getProgress().setRound(rounds);
+		getProgress().setSequenceSize(moves.size());
 		changeText("Simon's Turn");
 		label.setText("");
 		playSequence();
