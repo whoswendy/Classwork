@@ -45,7 +45,7 @@ public class AnimatedComponent extends MovingComponent {
 		//restrictions on component's location? 
 		if(getX() > 400 )
 		{
-			setX(400);
+			setX(400); 
 		 	//setVx(getVx()*-1);
 		}
 	}
