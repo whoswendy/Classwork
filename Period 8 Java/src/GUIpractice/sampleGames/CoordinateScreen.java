@@ -1,13 +1,18 @@
 package GUIpractice.sampleGames;
 
 import java.awt.Color;
+import java.awt.Graphics2D;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+
+import javax.swing.ImageIcon;
 
 import GUIpractice.Screen;
 import GUIpractice.components.Action;
+import GUIpractice.components.AnimatedComponent;
 import GUIpractice.components.Button;
 import GUIpractice.components.Graphic;
 import GUIpractice.components.MovingComponent;
@@ -55,10 +60,43 @@ public class CoordinateScreen extends Screen implements MouseMotionListener, Mou
 		//viewObjects.add(but);
 		//viewObjects.add(img);
 		
-		MovingComponent mc = new MovingComponent(30,60,80,80);
-		mc.setVy(3.00);//3 pixel every ms
-		mc.play();
-		viewObjects.add(mc);
+//		MovingComponent mc = new MovingComponent(30,60,80,80);
+//		mc.setVy(3.00);//3 pixel every ms
+//		mc.play();
+//		viewObjects.add(mc);
+		
+		addAnimation(viewObjects);
+		
+	}
+
+
+	private void addAnimation(ArrayList<Visible> viewObjects) {
+		// TODO Auto-generated method stub
+		AnimatedComponent A = new AnimatedComponent(40,50,150,150);
+		try{
+			int numOfRows = 5;
+			int rows = 2;
+			int w = 180;
+			int h = 230;
+			ImageIcon icon = new ImageIcon("resources/sampleImages/sprite.png");
+			for(int i = 0; i<numOfRows * rows; i++)
+			{
+				//declare the cropped image 
+				BufferedImage cropped = new BufferedImage(w,h,BufferedImage.TYPE_INT_ARGB);
+				int leftMargin = 0;
+				int topMargin = 0;
+				int x1 = leftMargin + w*(i%numOfRows);
+				int y1 = topMargin + h*(i/numOfRows);
+				Graphics2D g = cropped.createGraphics();
+				g.drawImage(icon.getImage(),0,0,w,h,x1,y1,x1+w,y1+h,null);
+				A.addFrame(cropped,150);
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		viewObjects.add(A);
+		A.setVx(3.00);//3 pixel every ms
+		A.play();
 	}
 
 

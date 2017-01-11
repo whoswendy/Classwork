@@ -3,7 +3,7 @@ package GUIpractice.components;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-public class MovingComponent extends Component implements Runnable {
+public abstract class MovingComponent extends Component implements Runnable {
 	
 	private double vx;//represent an actual location 
 	private double vy;
@@ -46,19 +46,7 @@ public class MovingComponent extends Component implements Runnable {
 		
 	}
 
-	public void checkBehaviors() {
-		// TODO Auto-generated method stub
-		if(getY() < 10 )
-		{
-			setY(10);
-			vy*=-1;
-		}
-		if(getY() > 300 )
-		{
-			setY(300);
-			vy*=-1;
-		}
-	}
+	public abstract void checkBehaviors();
 
 	@Override
 	public void update(Graphics2D g) {
@@ -76,12 +64,9 @@ public class MovingComponent extends Component implements Runnable {
 		
 		drawImage(g);
 	}
-	 
-	public void drawImage(Graphics2D g) {
-		// TODO Auto-generated method stub
-		g.setColor(Color.black);
-		g.fillOval(0, 0, getWidth(), getHeight());
-	}
+
+	
+	public abstract void drawImage(Graphics2D g);
 
 	public void setX(int x)
 	{

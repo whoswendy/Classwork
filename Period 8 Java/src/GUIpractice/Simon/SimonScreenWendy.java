@@ -18,7 +18,7 @@ public class SimonScreenWendy extends ClickableScreen implements Runnable{
 	private ButtonInterfaceWendy[] buttons;
 	private TextLabel label; 
 	private int rounds;
-	private boolean acceptedInput;
+	private boolean acceptedInput; 
 	private int sequenceIndex;
 	private int lastSelectedButton;
 
@@ -32,7 +32,7 @@ public class SimonScreenWendy extends ClickableScreen implements Runnable{
 	@Override
 	public void initAllObjects(ArrayList<Visible> viewObjects) {
 		// TODO Auto-generated method stub
-		addButtons(viewObjects);
+		addButtons();
 		progress = getProgress();
 		label = new TextLabel(130,230,300,40,"Let's play Simon!");
 		moves = new ArrayList<MoveInterfaceWendy>();
@@ -78,7 +78,7 @@ public class SimonScreenWendy extends ClickableScreen implements Runnable{
 	}
 	
 	
-	private void addButtons(ArrayList<Visible> viewObjects) {
+	private void addButtons() {
 		// TODO Auto-generated method stub
 		int NumOfButtons = 6;
 		Color[] colors = {Color.red,Color.blue,Color.pink,Color.green,Color.orange,Color.yellow};
@@ -125,7 +125,7 @@ public class SimonScreenWendy extends ClickableScreen implements Runnable{
 					}
 				}
 			});
-			viewObjects.add(b);
+			addObject(b);
 		}
 	}
 
@@ -135,7 +135,6 @@ public class SimonScreenWendy extends ClickableScreen implements Runnable{
 		// TODO Auto-generated method stub
 		label.setText("");
 		nextRound();
-		
 		
 	}
 
@@ -166,7 +165,7 @@ public class SimonScreenWendy extends ClickableScreen implements Runnable{
 			}
 			b = getAButton();
 			b.highlight();
-			int sleepTime = 1000*3/rounds+500;
+			int sleepTime = 1000*2/rounds+500;
 			try {
 				Thread.sleep(sleepTime);
 			} catch (InterruptedException e) {
