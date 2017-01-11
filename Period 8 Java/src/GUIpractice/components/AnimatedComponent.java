@@ -47,7 +47,7 @@ public class AnimatedComponent extends MovingComponent {
 		{
 			setX(400); 
 		 	//setVx(getVx()*-1);
-		}
+		} 
 	}
 
 
